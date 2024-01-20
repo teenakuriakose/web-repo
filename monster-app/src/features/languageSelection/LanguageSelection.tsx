@@ -13,6 +13,7 @@ import { DispatchContext, StateContext } from "../../context/context";
 import Text from "../../components/Text";
 import { LANGUAGES } from "../../constants";
 import { SELECT_LANGUAGE } from "../../context/actions/appContextActions";
+import i18n from "../../i18n";
 
 const LanguageSelection = () => {
   const theme = useTheme();
@@ -39,6 +40,7 @@ const LanguageSelection = () => {
 
   const handleLanguageSelection = (language: any) => {
     dispatch({ type: SELECT_LANGUAGE, payload: language.value });
+    i18n.changeLanguage(language.value);
     handleCloseLanguageMenu();
   };
 

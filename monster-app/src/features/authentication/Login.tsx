@@ -40,24 +40,6 @@ const Login = () => {
           </>
         }
       />
-      <div>
-        This is login
-        <Button onClick={() => navigate(DASHBOARD)}>{t("login")}</Button>
-      </div>
-      <Button
-        onClick={() => {
-          dispatch({ type: SELECT_LANGUAGE, payload: "ar" });
-        }}
-      >
-        {t("language.choose")}
-      </Button>
-      <Button
-        onClick={() => {
-          dispatch({ type: SELECT_COUNTRY, payload: "IN" });
-        }}
-      >
-        {t("language.choose")}
-      </Button>
     </>
   );
 };
