@@ -1,15 +1,12 @@
 {
-    "prelaunch": {
-      "language": {
-        "ar": "عربى",
-        "en": "EN",
-        "arabic": "عربى",
-        "english": "English",
-        "choose": "اختر لغتك",
-        "save": "حفظ ومتابعة"
-      },
-      "intro": "مرحبا بكم في التطبيق الوحش",
-      "login": "تسجيل الدخول"
-        }
-  }
-  
+  "language": {
+    "ar": "عربى",
+    "en": "EN",
+    "arabic": "عربى",
+    "english": "English",
+    "choose": "اختر لغتك",
+    "save": "حفظ ومتابعة"
+  },
+  "intro": "مرحبا بكم في التطبيق الوحش",
+  "login": "تسجيل الدخول"
+}
