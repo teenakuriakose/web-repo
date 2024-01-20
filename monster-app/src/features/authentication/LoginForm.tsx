@@ -7,11 +7,14 @@ import TextInput from "../../components/TextInput";
 import Button from "../../components/Button";
 import { useCredentialsValidation } from "../../hooks/useCredentialsValidation";
 import { StateContext } from "../../context/context";
+import { useNavigate } from "react-router-dom";
+import { DASHBOARD } from "../../router/config";
 
 const LoginForm = () => {
   const { t } = useTranslation();
   const theme = useTheme();
   const state = useContext(StateContext);
+  const navigate = useNavigate();
 
   const {
     username,
@@ -63,6 +66,7 @@ const LoginForm = () => {
           disabled={
             !(isUsernameValid && isPasswordValid && username && password)
           }
+          onClick={() => navigate(DASHBOARD)}
         >
           {t("login")}
         </Button>
