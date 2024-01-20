@@ -1,27 +1,72 @@
 import { Box, Grid } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import Text from "../../components/Text";
 import { useTranslation } from "react-i18next";
 import useTheme from "@mui/material/styles/useTheme";
 import TextInput from "../../components/TextInput";
 import Button from "../../components/Button";
+import { useCredentialsValidation } from "../../hooks/useCredentialsValidation";
+import { StateContext } from "../../context/context";
 
 const LoginForm = () => {
   const { t } = useTranslation();
   const theme = useTheme();
+  const state = useContext(StateContext);
+
+  const {
+    username,
+    setUsername,
+    usernameError,
+    isUsernameValid,
+    password,
+    setPassword,
+    passwordError,
+    isPasswordValid,
+    handleUsernameFocus,
+    handlePasswordFocus,
+  } = useCredentialsValidation(state.country, t);
 
   return (
     <Box>
       <Text variant={"h3"} color={theme.palette.primary.main}>
         {t("welcome")}
       </Text>
-      <Box mt={8} width={"100%"}>
-        <TextInput label={t("username")} />
+      <Box mt={4} minWidth={300}>
+        <TextInput
+          fullWidth
+          label={t("username")}
+          value={username}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setUsername(event.target.value)
+          }
+          error={!!usernameError}
+          errorMessage={usernameError || ""}
+          onFocus={handleUsernameFocus}
+        />
       </Box>
-      <Box mt={4}>
-        <TextInput label={t("password")} type={"password"} />
+      <Box mt={2} minWidth={400}>
+        <TextInput
+          fullWidth
+          label={t("password")}
+          value={password}
+          type={"password"}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setPassword(event.target.value)
+          }
+          error={!!passwordError}
+          errorMessage={passwordError || ""}
+          onFocus={handlePasswordFocus}
+        />
       </Box>
-      <Button></Button>
+      <Box mt={2}>
+        <Button
+          disabled={
+            !(isUsernameValid && isPasswordValid && username && password)
+          }
+        >
+          {t("login")}
+        </Button>
+      </Box>
     </Box>
   );
 };

@@ -13,6 +13,8 @@ import DividedLayout from "../../layout/DividedLayout";
 import SvgMonster from "../../icons/SvgMonster";
 import LoginForm from "./LoginForm";
 import useTheme from "@mui/material/styles/useTheme";
+import CountrySelection from "../countrySelection/CountrySelection";
+import LanguageSelection from "../languageSelection/LanguageSelection";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -26,10 +28,17 @@ const Login = () => {
   return (
     <>
       <DividedLayout
-        LeftContent={
+        leftContent={
           <SvgMonster height={"100%"} color={theme.palette.primary.main} />
         }
-        RightContent={<LoginForm />}
+        rightContent={<LoginForm />}
+        appBarText={" "}
+        appBarRightContent={
+          <>
+            <CountrySelection />
+            <LanguageSelection />
+          </>
+        }
       />
       <div>
         This is login
