@@ -22,8 +22,8 @@ const DividedLayout = (props: LayoutType) => {
         <Grid
           item
           container
-          lg={6}
-          md={6}
+          lg={3}
+          md={4}
           sx={{ display: { xs: "none", sm: "none", lg: "block", md: "block" } }}
           justifyContent={"center"}
         >
@@ -34,8 +34,8 @@ const DividedLayout = (props: LayoutType) => {
           container
           xs={12}
           sm={12}
-          md={6}
-          lg={6}
+          md={8}
+          lg={9}
           justifyContent={"center"}
         >
           {RightContent}
