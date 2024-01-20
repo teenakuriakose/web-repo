@@ -1,6 +1,13 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
+import { default as CoreButton } from "@mui/material/Button";
 
-export default function ButtonUsage() {
-  return <Button variant="contained">Hello world</Button>;
-}
+const Button = (props: any) => {
+  const { ...rest } = props;
+  return (
+    <CoreButton variant="contained" {...rest}>
+      Hello world
+    </CoreButton>
+  );
+};
+
+export default Button;
