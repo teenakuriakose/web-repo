@@ -11,6 +11,7 @@ const AppRouter: React.FC = () => (
     <Routes>
       <Route path={LOGIN} element={<Login />} />
       <Route path={DASHBOARD} element={<Dashboard />} />
+
     </Routes>
   </Router>
 );

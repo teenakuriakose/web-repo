@@ -1,5 +1,6 @@
 {
   "welcome": "مرحبًا!",
+  "welcomeUser": "مرحبًا، {{username}}!",
   "login": "تسجيل الدخول",
   "country": "الدولة",
   "username": "اسم المستخدم",
@@ -10,6 +11,8 @@
   "clear": "واضح",
   "changeLanguage": "تغيير اللغة",
   "changeCountry": "تغيير الدولة",
+  "selectedCountry": "الدولة المختارة",
+  "selectedLanguage": "اللغة المختارة",
   "back": "رجوع",
   "languages": {
     "en": "English",

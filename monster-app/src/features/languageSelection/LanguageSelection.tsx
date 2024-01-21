@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import { DispatchContext, StateContext } from "../../context/context";
 import Text from "../../components/Text";
 import { DIRECTION, LANGUAGES } from "../../constants";
-import { SELECT_LANGUAGE } from "../../context/actions/appContextActions";
+import { selectLanguage } from "../../context/actions/appContextActions";
 import i18n from "../../i18n";
 import { isRTLLanguage } from "../../utils/IsRTL";
 
@@ -40,7 +40,7 @@ const LanguageSelection = () => {
   };
 
   const handleLanguageSelection = (language: any) => {
-    dispatch({ type: SELECT_LANGUAGE, payload: language.value });
+    dispatch(selectLanguage(language.value));
     i18n.changeLanguage(language.value);
     document.body.setAttribute(
       "dir",

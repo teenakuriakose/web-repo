@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import { DispatchContext, StateContext } from "../../context/context";
 import Text from "../../components/Text";
 import { COUNTRIES } from "../../constants";
-import { SELECT_COUNTRY } from "../../context/actions/appContextActions";
+import { selectCountry } from "../../context/actions/appContextActions";
 
 const CountrySelection = () => {
   const theme = useTheme();
@@ -37,7 +37,7 @@ const CountrySelection = () => {
   };
 
   const handleCountrySelection = (country: any) => {
-    dispatch({ type: SELECT_COUNTRY, payload: country.value });
+    dispatch(selectCountry(country.value));
     handleCloseCountryMenu();
   };
 

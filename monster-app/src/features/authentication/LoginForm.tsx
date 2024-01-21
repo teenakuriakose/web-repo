@@ -6,14 +6,19 @@ import useTheme from "@mui/material/styles/useTheme";
 import TextInput from "../../components/TextInput";
 import Button from "../../components/Button";
 import { useCredentialsValidation } from "../../hooks/useCredentialsValidation";
-import { StateContext } from "../../context/context";
+import { DispatchContext, StateContext } from "../../context/context";
 import { useNavigate } from "react-router-dom";
 import { DASHBOARD } from "../../router/config";
+import {
+  SET_USER_AUTHENTICATION,
+  setUserAuthentication,
+} from "../../context/actions/appContextActions";
 
 const LoginForm = () => {
   const { t } = useTranslation();
   const theme = useTheme();
   const state = useContext(StateContext);
+  const dispatch = useContext(DispatchContext);
   const navigate = useNavigate();
 
   const {
@@ -66,7 +71,10 @@ const LoginForm = () => {
           disabled={
             !(isUsernameValid && isPasswordValid && username && password)
           }
-          onClick={() => navigate(DASHBOARD)}
+          onClick={() => {
+            dispatch(setUserAuthentication({ authenticated: true, username }));
+            navigate(DASHBOARD, { replace: true });
+          }}
         >
           {t("login")}
         </Button>
