@@ -1,6 +1,7 @@
 import {renderHook, act} from '@testing-library/react-hooks';
 import {useCredentialsValidation} from '../useCredentialsValidation';
-import {COUNTRIES} from '../../core/constants';
+import { COUNTRIES } from "../../constants";
+
 
 const mockT = jest.fn(key => key);
 
