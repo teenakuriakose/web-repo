@@ -8,4 +8,5 @@ export type CountriesType =
 
 export type ColorsType = {
   MAIN?: string;
+  ERROR?: string;
 };

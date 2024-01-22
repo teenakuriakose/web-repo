@@ -1,5 +1,6 @@
 {
   "welcome": "Welcome!",
+  "welcomeUser": "Welcome, {{username}}!",
   "login": "Login",
   "country": "Country",
   "username": "Username",
@@ -10,6 +11,8 @@
   "clear": "Clear",
   "changeLanguage": "Change Language",
   "changeCountry": "Change Country",
+  "selectedCountry": "Selected Country",
+  "selectedLanguage": "Selected Language",
   "back": "Back",
   "languages": {
     "en": "English",
@@ -27,7 +30,8 @@
     "AE": "Username must be 5 characters and alphanumeric.",
     "PK": "Username must have at least 4 characters and contain a number",
     "EG": "Username must be 5 characters and can contain special characters",
-    "password": "Password must be at least 8 characters."
+    "password": "Password must be at least 8 characters.",
+    "invalidCredentials": "Invalid Credentials"
   },
   "drawAMonster": "Draw a Monster"
 }

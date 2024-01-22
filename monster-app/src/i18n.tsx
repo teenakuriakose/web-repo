@@ -2,6 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import english from './localization/en.json';
 import arabic from './localization/ar.json';
+import hindi from "./localization/hi.json";
 
 const resources = {
   en: {
@@ -9,6 +10,9 @@ const resources = {
   },
   ar: {
     translation: arabic,
+  },
+  hi: {
+    translation: hindi,
   },
 };
 

@@ -10,3 +10,8 @@ export enum LANGUAGES {
   AR = "ar",
   HI = "hi",
 }
+
+export enum DIRECTION {
+  RTL = "rtl",
+  LTR = "ltr",
+}
