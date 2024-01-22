@@ -1,5 +1,5 @@
 import { Box, Grid } from "@mui/material";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Text from "../../components/Text";
 import { useTranslation } from "react-i18next";
 import useTheme from "@mui/material/styles/useTheme";
@@ -9,10 +9,9 @@ import { useCredentialsValidation } from "../../hooks/useCredentialsValidation";
 import { DispatchContext, StateContext } from "../../context/context";
 import { useNavigate } from "react-router-dom";
 import { DASHBOARD } from "../../router/config";
-import {
-  SET_USER_AUTHENTICATION,
-  setUserAuthentication,
-} from "../../context/actions/appContextActions";
+import { setUserAuthentication } from "../../context/actions/appContextActions";
+import useFetch from "../../network/hooks/useFetch";
+import * as Endpoints from "../../network/Endpoints";
 
 const LoginForm = () => {
   const { t } = useTranslation();
@@ -33,6 +32,15 @@ const LoginForm = () => {
     handleUsernameFocus,
     handlePasswordFocus,
   } = useCredentialsValidation(state.country, t);
+
+  const { execute, response, error: apiError, loading } = useFetch();
+
+  useEffect(() => {
+    if (response) {
+      dispatch(setUserAuthentication({ authenticated: true, username }));
+      navigate(DASHBOARD, { replace: true });
+    }
+  }, [response]);
 
   return (
     <Box>
@@ -66,14 +74,23 @@ const LoginForm = () => {
           onFocus={handlePasswordFocus}
         />
       </Box>
+      <Box>
+        {apiError && (
+          <Text variant={"caption"} color={theme.palette.error.main}>
+            {t("errorMessage.invalidCredentials")}
+          </Text>
+        )}
+      </Box>
       <Box mt={2}>
         <Button
           disabled={
             !(isUsernameValid && isPasswordValid && username && password)
           }
           onClick={() => {
-            dispatch(setUserAuthentication({ authenticated: true, username }));
-            navigate(DASHBOARD, { replace: true });
+            execute(Endpoints.FETCH_USER, {
+              method: "GET",
+              data: { username, password, country: state.country },
+            });
           }}
         >
           {t("login")}
